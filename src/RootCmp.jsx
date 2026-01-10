@@ -1,7 +1,3 @@
-import React from 'react'
-import { Routes, Route } from 'react-router'
-
-import { HomePage } from './pages/HomePage'
 import { Routes, Route } from 'react-router-dom'
 import { AppLayout } from './pages/AppLayout'
 import { PostIndex } from './pages/PostIndex'
