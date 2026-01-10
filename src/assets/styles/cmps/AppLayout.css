@@ -1,0 +1,28 @@
+.app-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 100vh;
+}
+
+.app-sidebar {
+  border-right: 1px solid #222;
+  padding: 16px;
+}
+
+.app-main {
+  padding: 24px;
+}
+
+.side-nav a {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.side-nav a.active {
+  font-weight: 700;
+}
