@@ -2,28 +2,21 @@ import React from 'react'
 import { Routes, Route } from 'react-router'
 
 import { HomePage } from './pages/HomePage'
-
-import { UserDetails } from './pages/UserDetails'
-
-import { AppHeader } from './cmps/AppHeader'
-import { AppFooter } from './cmps/AppFooter'
-import { UserMsg } from './cmps/UserMsg.jsx'
-import { LoginSignup, Login, Signup } from './pages/LoginSignup.jsx'
-
+import { Routes, Route } from 'react-router-dom'
+import { AppLayout } from './pages/AppLayout'
+import { PostIndex } from './pages/PostIndex'
+import { HomePage } from './pages/HomePage'
 
 export function RootCmp() {
-    return (
-        <div className="main-container">
-            <AppHeader />
-            <UserMsg />
-
-            <main>
-                <Routes>
-                </Routes>
-            </main>
-            <AppFooter />
-        </div>
-    )
+  return (
+    <section className="root-cmp">
+      <Routes>
+        <Route element={<AppLayout />}>
+          <Route path="/" element={<PostIndex />} />
+          <Route path="/explore" element={<HomePage />} />
+          <Route path="/profile" element={<HomePage />} />
+        </Route>
+      </Routes>
+    </section>
+  )
 }
-
-
