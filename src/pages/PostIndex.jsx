@@ -1,53 +1,32 @@
-
+import { useEffect, useState } from 'react'
+import { postService } from '../services/post/post.service.local'
 
 export function PostIndex() {
+  const [posts, setPosts] = useState([])
 
-    // const [ filterBy, setFilterBy ] = useState(postService.getDefaultFilter())
-    // const posts = useSelector(storeState => storeState.postModule.posts)
+  useEffect(() => {
+    loadPosts()
+  }, [])
 
-    // useEffect(() => {
-    //     loadPosts(filterBy)
-    // }, [filterBy])
+  async function loadPosts() {
+    const posts = await postService.query()
+    setPosts(posts)
+  }
 
-    // async function onRemovePost(postId) {
-    //     try {
-    //         await removePost(postId)
-    //         showSuccessMsg('Post removed')            
-    //     } catch (err) {
-    //         showErrorMsg('Cannot remove post')
-    //     }
-    // }
+  return (
+    <section className="post-index">
+      {posts.map(post => (
+        <article key={post._id} className="post-preview">
+          <div className="post-header">
+            <strong>{post.by.fullname}</strong>
+            <span>@{post.by.username}</span>
+          </div>
 
-    // async function onAddPost() {
-    //     const post = postService.getEmptyPost()
-    //     post.vendor = prompt('Vendor?', 'Some Vendor')
-    //     try {
-    //         const savedPost = await addPost(post)
-    //         showSuccessMsg(`Post added (id: ${savedPost._id})`)
-    //     } catch (err) {
-    //         showErrorMsg('Cannot add post')
-    //     }        
-    // }
+          <img className="post-img" src={post.imgUrl} />
 
-    // async function onUpdatePost(post) {
-    //     const speed = +prompt('New speed?', post.speed) || 0
-    //     if(speed === 0 || speed === post.speed) return
-
-    //     const postToSave = { ...post, speed }
-    //     try {
-    //         const savedPost = await updatePost(postToSave)
-    //         showSuccessMsg(`Post updated, new speed: ${savedPost.speed}`)
-    //     } catch (err) {
-    //         showErrorMsg('Cannot update post')
-    //     }        
-    // }
-
-    return (
-        <section className="post-index">
-            {/* <PostList 
-                posts={posts}
-                onRemovePost={onRemovePost} 
-                onUpdatePost={onUpdatePost}/> */}
-        </section>
-    )
+          <p className="post-caption">{post.caption}</p>
+        </article>
+      ))}
+    </section>
+  )
 }
