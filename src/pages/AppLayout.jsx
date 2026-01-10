@@ -5,8 +5,11 @@ export function AppLayout() {
   return (
     <section className="app-layout">
       <AppSidebar />
+
       <main className="app-main">
-        <Outlet />
+        <div className="main-content">
+          <Outlet />
+        </div>
       </main>
     </section>
   )
