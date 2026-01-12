@@ -20,5 +20,9 @@
 @import "cmps/UserMsg";
 
 @import "cmps/AppLayout";
+@import "cmps/AppSidebar";
 
 
+
+/* //pages */
+@import "pages/PostIndex"

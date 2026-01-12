@@ -1,0 +1,11 @@
+.app-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .side-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+}

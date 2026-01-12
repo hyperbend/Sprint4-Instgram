@@ -4,25 +4,21 @@
   min-height: 100vh;
 }
 
+
 .app-sidebar {
-  border-right: 1px solid #222;
   padding: 16px;
+  border-right: 1px solid #ddd;
 }
+
 
 .app-main {
-  padding: 24px;
-}
-
-.side-nav a {
+  /* padding: 24px 0; */
   display: flex;
-  gap: 12px;
-  align-items: center;
-  padding: 10px;
-  border-radius: 10px;
-  text-decoration: none;
-  color: inherit;
+  justify-content: center;
 }
 
-.side-nav a.active {
-  font-weight: 700;
+.main-content {
+  /* max-width: 630px;
+  margin: 0 auto;    */
+  width: 100%;
 }
